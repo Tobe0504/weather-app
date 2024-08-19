@@ -1,0 +1,40 @@
+.container {
+  padding: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.05px;
+  text-align: left;
+  color: var(--white);
+}
+
+.bookmarks {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.bookmark {
+  width: 138.85px;
+}
+
+.bookmark > img {
+  width: 100%;
+  height: 88px;
+}
+
+.bookmark > span {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.52px;
+  text-align: left;
+  color: var(--white);
+}

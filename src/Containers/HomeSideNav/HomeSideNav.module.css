@@ -1,0 +1,26 @@
+.container {
+  min-height: 437px;
+  padding: 40px 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.container > a {
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.container > a > p {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.94px;
+  text-align: center;
+  color: var(--white);
+  text-transform: lowercase;
+}

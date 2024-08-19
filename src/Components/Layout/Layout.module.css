@@ -1,0 +1,16 @@
+.container {
+  background-color: var(--bgOrange);
+  min-height: 100vh;
+}
+
+.header {
+  height: 100px;
+  position: sticky;
+  top: 0;
+}
+
+.body {
+  min-height: calc(100vh - 100px);
+  padding: 40px;
+  overflow: auto;
+}

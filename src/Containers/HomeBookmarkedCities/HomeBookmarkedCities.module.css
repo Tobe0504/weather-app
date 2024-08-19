@@ -1,0 +1,11 @@
+.container > section {
+  width: 100%;
+  flex: 1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}

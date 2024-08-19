@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+}
+
+.notificationContainer {
+  position: fixed;
+  width: 1124px;
+  bottom: 20px;
+  right: 10px;
+  z-index: 4;
+}
+
+.notification {
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.leftSection > p:nth-child(1) {
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.notification > svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .notificationContainer {
+    position: fixed;
+    width: 343px;
+    bottom: 16px;
+  }
+
+  .notification {
+    border-radius: 10px;
+    padding: 12px;
+    gap: 0.5rem;
+  }
+
+  .leftSection > p:nth-child(1) {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .notificationContainer {
+    position: fixed;
+    width: 343px;
+    bottom: 16px;
+  }
+
+  .notification {
+    border-radius: 10px;
+    padding: 12px;
+    gap: 0.5rem;
+  }
+
+  .leftSection > p:nth-child(1) {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}

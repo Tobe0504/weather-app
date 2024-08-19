@@ -1,0 +1,15 @@
+.container {
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+}
+
+.container > section:nth-child(1) {
+  width: 100px;
+  height: 100%;
+}
+
+.container > section:nth-child(2) {
+  flex: 1;
+}

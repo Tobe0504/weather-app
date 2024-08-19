@@ -1,0 +1,35 @@
+.container {
+  padding: 40px;
+}
+
+.container > h4 {
+  margin-bottom: 2rem;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.05px;
+  text-align: left;
+  color: var(--white);
+}
+
+.infoSection {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.info > div > span {
+  display: block;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+  text-align: left;
+  color: var(--white);
+}

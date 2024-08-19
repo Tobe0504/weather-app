@@ -1,0 +1,146 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  margin-bottom: 24px;
+}
+
+.container label {
+  color: var(--white);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.container span:nth-child(2) {
+  color: var(--white);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.container input {
+  display: block;
+  width: 100%;
+  padding: 18px 15px;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 5px 0;
+  outline: none;
+  animation: appear 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+  border-radius: 40px;
+  opacity: 0px;
+  background-color: var(--polarozedOrangeBg);
+  color: var(--white);
+  outline: none;
+}
+
+.container input:focus {
+  outline: 1px solid var(--white);
+}
+
+.valid {
+  border: none;
+  color: var(--white);
+}
+
+.invalid {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.container input::placeholder {
+  color: var(--grey3);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.container .icon {
+  top: 50%;
+  left: 13px;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.errorMessage {
+  color: var(--red);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  animation: appear 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.tip {
+  color: var(--white);
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container input {
+    padding: 12px;
+    font-family: Inter;
+    font-size: 14px;
+    line-height: 23px;
+    border-radius: 5px;
+  }
+
+  .container label {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .errorMessage {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    margin-bottom: 16px;
+  }
+
+  .container input {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 23px;
+    border-radius: 5px;
+  }
+
+  .container label {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .tip,
+  .errorMessage {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
