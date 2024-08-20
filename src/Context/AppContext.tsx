@@ -20,6 +20,8 @@ type AppContextProviderValues = {
   setBookmarks: Dispatch<SetStateAction<any[]>>;
   getCountryWeather: (lat: string, long: string) => void;
   countryWeather: requestType;
+  isFarenheit: boolean;
+  setIsFarenheit: Dispatch<SetStateAction<boolean>>;
 };
 
 export type notificationsType =
@@ -48,6 +50,7 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
     error: null,
   });
   const [bookmarks, setBookmarks] = useState<any[]>([]);
+  const [isFarenheit, setIsFarenheit] = useState(false);
 
   // Requests
   const getCountries = () => {
@@ -90,10 +93,9 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
     if (countries?.data) {
       const countriesCopy = countries.data.map((data: any) => ({
         ...data,
-        isBookmarked: false, // Corrected typo
+        isBookmarked: false,
       }));
 
-      // Check if the data has changed
       const hasChanged =
         JSON.stringify(countriesCopy) !== JSON.stringify(countries.data);
 
@@ -117,6 +119,8 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
         setBookmarks,
         getCountryWeather,
         countryWeather,
+        isFarenheit,
+        setIsFarenheit,
       }}
     >
       {children}

@@ -7,7 +7,8 @@ import classes from "./HomeCityAndDegree.module.css";
 
 const HomeCityAndDegree = () => {
   // Context
-  const { countryWeather } = useContext(AppContext);
+  const { countryWeather, setIsFarenheit, isFarenheit } =
+    useContext(AppContext);
 
   const today = new Date();
 
@@ -34,7 +35,16 @@ const HomeCityAndDegree = () => {
           <span>{countryWeather?.data?.location?.country}</span>
         </div>
         <h1>{countryWeather?.data?.current?.condition?.text}</h1>
-        <h2>{countryWeather?.data?.current?.temp_c}°C</h2>
+        <h2
+          onClick={() => {
+            setIsFarenheit((prevState) => !prevState);
+          }}
+        >
+          {isFarenheit
+            ? `${countryWeather?.data?.current?.temp_f}°F`
+            : `${countryWeather?.data?.current?.temp_c}°C`}
+        </h2>
+        <span>Click to toggle between celsuis and farenheit</span>
         <span>{day}</span> <span>| {todaysDate}</span>
       </div>
 

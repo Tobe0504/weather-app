@@ -23,7 +23,11 @@ const HomeSideNav = () => {
     <Card className={classes.container}>
       {sideNavRoutes.map((routes) => {
         return (
-          <Link className={classes.sidenavRoute} to={routes.route}>
+          <Link
+            className={classes.sidenavRoute}
+            to={routes.route}
+            key={routes.title}
+          >
             {iconHandler(routes.title)}
             <p>{routes.title}</p>
           </Link>

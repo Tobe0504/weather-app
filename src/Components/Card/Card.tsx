@@ -1,4 +1,3 @@
-import { CSSProperties } from "react";
 import classes from "./Card.module.css";
 
 type CardType = {

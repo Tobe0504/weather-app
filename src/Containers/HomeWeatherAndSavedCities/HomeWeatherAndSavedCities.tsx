@@ -2,11 +2,17 @@ import classes from "./HomeWeatherAndSavedCities.module.css";
 import HomeSideNav from "../HomeSideNav/HomeSideNav";
 import HomeBookmarkedCities from "../HomeBookmarkedCities/HomeBookmarkedCities";
 
-const HomeWeatherAndSavedCities = () => {
+type HomeWeatherAndSavedCitiesTypes = {
+  showConditions?: boolean;
+};
+
+const HomeWeatherAndSavedCities = ({
+  showConditions,
+}: HomeWeatherAndSavedCitiesTypes) => {
   return (
     <section className={classes.container}>
       <HomeSideNav />
-      <HomeBookmarkedCities />
+      <HomeBookmarkedCities showConditions={showConditions} />
     </section>
   );
 };

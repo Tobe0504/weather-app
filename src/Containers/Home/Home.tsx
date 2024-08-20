@@ -5,6 +5,7 @@ import Loader from "../../Components/Loader/Loader";
 import { AppContext } from "../../Context/AppContext";
 import HomeCityAndDegree from "../HomeCityAndDegree/HomeCityAndDegree";
 import HomeWeatherAndSavedCities from "../HomeWeatherAndSavedCities/HomeWeatherAndSavedCities";
+import NoSelectedCountry from "../NoSelectedCountry/NoSelectedCountry";
 
 const Home = () => {
   // context
@@ -29,6 +30,8 @@ const Home = () => {
         })
       );
     }
+
+    // eslint-disable-next-line
   }, [selectedCountry, countries?.data]);
 
   useEffect(() => {
@@ -40,9 +43,9 @@ const Home = () => {
         );
       }, 1000);
     }
-  }, [selectedCountryObject]);
 
-  console.log(selectedCountry, selectedCountryObject);
+    // eslint-disable-next-line
+  }, [selectedCountryObject]);
 
   useEffect(() => {
     if (countryWeather.data) {
@@ -69,8 +72,17 @@ const Home = () => {
 
   return (
     <Layout isRainy={isRainy}>
-      <HomeCityAndDegree />
-      <HomeWeatherAndSavedCities />
+      {selectedCountry ? (
+        <>
+          <HomeCityAndDegree />
+          <HomeWeatherAndSavedCities />
+        </>
+      ) : (
+        <>
+          <NoSelectedCountry />
+          <HomeWeatherAndSavedCities showConditions={false} />
+        </>
+      )}
     </Layout>
   );
 };

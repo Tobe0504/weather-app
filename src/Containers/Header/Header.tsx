@@ -9,7 +9,7 @@ import classes from "./Header.module.css";
 
 const Header = () => {
   // Context
-  const { countries, setBookmarks } = useContext(AppContext);
+  const { countries, setBookmarks, bookmarks } = useContext(AppContext);
 
   // States
   const [search, setSearch] = useState("");
@@ -68,38 +68,58 @@ const Header = () => {
                   return a?.name?.common - b?.name?.common;
                 })
                 ?.map((data: any) => {
+                  const isBookmarked = bookmarks.find((bookmark) => {
+                    return (
+                      bookmark?.name?.common
+                        ?.replaceAll(" ", "-")
+                        ?.toLowerCase() ===
+                      data?.name?.common?.replaceAll(" ", "-")?.toLowerCase()
+                    );
+                  });
                   return (
-                    <div
-                      onClick={() => {
-                        setSearchParams({
-                          selectedCountry: data?.name?.common
-                            ?.replaceAll(" ", "-")
-                            .toLowerCase(),
-                        });
-                      }}
-                    >
+                    <div>
                       <svg
                         width="30"
                         height="30"
                         viewBox="0 0 50 50"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        onClick={() =>
-                          setBookmarks((prevState) => {
-                            if (prevState?.length > 0) {
-                              return [...prevState, data];
-                            } else {
-                              return [data];
-                            }
-                          })
-                        }
+                        onClick={() => {
+                          if (isBookmarked) {
+                            setBookmarks((prevState) => {
+                              return prevState?.filter((filter) => {
+                                return (
+                                  filter?.name?.common !== data?.name?.common
+                                );
+                              });
+                            });
+                          } else {
+                            setBookmarks((prevState) => {
+                              if (prevState?.length > 0) {
+                                return [...prevState, data];
+                              } else {
+                                return [data];
+                              }
+                            });
+                          }
+                        }}
                       >
                         <path
                           d="M25 4C16.7179 4 10 10.5835 10 18.7C10 29.725 25 46 25 46C25 46 40 29.725 40 18.7C40 10.5835 33.2821 4 25 4ZM25 23.95C22.0429 23.95 19.6429 21.598 19.6429 18.7C19.6429 15.802 22.0429 13.45 25 13.45C27.9571 13.45 30.3571 15.802 30.3571 18.7C30.3571 21.598 27.9571 23.95 25 23.95Z"
-                          fill="white"
+                          fill={isBookmarked ? "#d69e36" : "white"}
                         />
                       </svg>
-                      <span>{data?.name?.common}</span>
+                      <span
+                        onClick={() => {
+                          setSearchParams({
+                            selectedCountry: data?.name?.common
+                              ?.replaceAll(" ", "-")
+                              .toLowerCase(),
+                          });
+                        }}
+                      >
+                        {data?.name?.common}
+                      </span>
                     </div>
                   );
                 })

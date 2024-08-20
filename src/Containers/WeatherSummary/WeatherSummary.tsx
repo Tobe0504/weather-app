@@ -9,7 +9,7 @@ import classes from "./WeatherSummary.module.css";
 
 const WeatherSummary = () => {
   // Context
-  const { countryWeather } = useContext(AppContext);
+  const { countryWeather, isFarenheit } = useContext(AppContext);
   return (
     <Card className={classes.container}>
       <h4>Air Conditions</h4>
@@ -19,7 +19,12 @@ const WeatherSummary = () => {
           <TemperatureIcon />
           <div>
             <span>Real Feel</span>
-            <span>{countryWeather?.data?.current?.feelslike_c}°</span>
+
+            <span>
+              {isFarenheit
+                ? `${countryWeather?.data?.current?.feelslike_f}°F`
+                : `${countryWeather?.data?.current?.feelslike_c}°C`}
+            </span>
           </div>
         </div>
 

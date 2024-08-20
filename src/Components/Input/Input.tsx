@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "./Input.module.css";
 
 type InputProps = {
@@ -44,13 +44,6 @@ const Input = ({
 }: InputProps) => {
   // States
   const [invalid, setInvalid] = useState(false);
-  const [characterCount, setCharacterCount] = useState(
-    value ? value.length : 0
-  );
-
-  useEffect(() => {
-    setCharacterCount(value ? value.length : 0);
-  }, [value]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
@@ -59,7 +52,6 @@ const Input = ({
       setInvalid(true);
       return;
     }
-    setCharacterCount(inputValue.length);
     if (onChange) onChange(event);
     setInvalid(false);
   };

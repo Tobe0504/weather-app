@@ -1,0 +1,11 @@
+.container {
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 58.09px;
+  color: var(--white);
+  text-align: left;
+  margin: 40px 0;
+  text-align: center;
+  min-height: 200px;
+}

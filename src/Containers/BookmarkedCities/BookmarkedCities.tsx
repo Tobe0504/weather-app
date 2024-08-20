@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { useSearchParams } from "react-router-dom";
-import { URLSearchParams } from "url";
 import BookMarkIcon from "../../Assets/SvgComponents/BookMarkIcon";
 import Card from "../../Components/Card/Card";
 import { AppContext } from "../../Context/AppContext";
@@ -32,6 +31,7 @@ const BookmarkedCities = () => {
                       .toLowerCase(),
                   });
                 }}
+                key={data?.name?.common}
               >
                 <img src={data?.flags?.png} alt={data?.flags?.alt} />
                 <span>{data?.name?.common}</span>

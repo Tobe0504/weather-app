@@ -1,14 +1,18 @@
-import { useContext } from "react";
-import { AppContext } from "../../Context/AppContext";
 import BookmarkedCities from "../BookmarkedCities/BookmarkedCities";
 import WeatherSummary from "../WeatherSummary/WeatherSummary";
 import classes from "./HomeBookmarkedCities.module.css";
 
-const HomeBookmarkedCities = () => {
+type HomeBookmarkedCitiesType = {
+  showConditions?: boolean;
+};
+
+const HomeBookmarkedCities = ({
+  showConditions = true,
+}: HomeBookmarkedCitiesType) => {
   return (
     <section className={classes.container}>
       <BookmarkedCities />
-      <WeatherSummary />
+      {showConditions && <WeatherSummary />}
     </section>
   );
 };

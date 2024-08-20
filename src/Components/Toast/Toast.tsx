@@ -18,6 +18,8 @@ const Toast = ({ children }: ToastProps) => {
 
     setNotifications(newNotifications as notificationsType);
   };
+
+  // Effects
   useEffect(() => {
     const timeoutIds: NodeJS.Timeout[] = [];
 
@@ -32,6 +34,8 @@ const Toast = ({ children }: ToastProps) => {
     return () => {
       timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
     };
+
+    // eslint-disable-next-line
   }, [notifications]);
 
   return (
