@@ -1,5 +1,6 @@
 .container {
   padding: 40px;
+  width: 100vw;
 }
 
 .header {
@@ -19,10 +20,13 @@
   display: flex;
   align-items: center;
   gap: 21px;
+  overflow-x: auto;
 }
 
 .bookmark {
   width: 138.85px;
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .bookmark:hover > img {
@@ -52,5 +56,77 @@
   font-weight: 500;
   line-height: 14.52px;
   color: var(--white);
-  text-align: center;
+  text-align: left;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .bookmarks {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .bookmark {
+    width: 88px;
+  }
+
+  .bookmark:hover > img {
+    transform: scale(1.03);
+  }
+
+  .bookmark > img {
+    height: 58px;
+    border-radius: 5px;
+  }
+
+  .bookmarks > div {
+    font-family: Inter;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  .bookmarks {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .bookmark {
+    width: 88px;
+  }
+
+  .bookmark:hover > img {
+    transform: scale(1.03);
+  }
+
+  .bookmark > img {
+    height: 58px;
+    border-radius: 5px;
+  }
+
+  .bookmarks > div {
+    font-family: Inter;
+    font-size: 14px;
+  }
 }

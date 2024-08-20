@@ -16,3 +16,25 @@
   padding: 40px;
   overflow: auto;
 }
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .header {
+    height: 80px;
+  }
+
+  .body {
+    min-height: calc(100vh - 80px);
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    height: 80px;
+  }
+
+  .body {
+    min-height: calc(100vh - 80px);
+    padding: 16px;
+  }
+}
