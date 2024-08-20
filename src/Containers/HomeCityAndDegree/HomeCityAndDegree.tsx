@@ -1,7 +1,20 @@
+import moment from "moment";
+import { useContext } from "react";
 import CloudIcon from "../../Assets/SvgComponents/CloudIcon";
+import MoonIcon from "../../Assets/SvgComponents/MoonIcon";
+import { AppContext } from "../../Context/AppContext";
 import classes from "./HomeCityAndDegree.module.css";
 
 const HomeCityAndDegree = () => {
+  // Context
+  const { countryWeather } = useContext(AppContext);
+
+  const today = new Date();
+
+  const todaysDate = moment(today).format("Do MMMM, YYYY");
+  const day = moment(today).format("dddd");
+
+  const hour = moment().hours();
   return (
     <section className={classes.container}>
       <div className={classes.leftContainer}>
@@ -18,14 +31,14 @@ const HomeCityAndDegree = () => {
               fill="white"
             />
           </svg>
-          <span>New York</span>
+          <span>{countryWeather?.data?.location?.country}</span>
         </div>
-        <h1>Cloudy</h1>
-        <h2>26°C</h2>
-        <span>Sunday</span> <span>| 12 Dec 2023</span>
+        <h1>{countryWeather?.data?.current?.condition?.text}</h1>
+        <h2>{countryWeather?.data?.current?.temp_c}°C</h2>
+        <span>{day}</span> <span>| {todaysDate}</span>
       </div>
 
-      <CloudIcon />
+      {hour <= 16 ? <CloudIcon /> : <MoonIcon />}
     </section>
   );
 };

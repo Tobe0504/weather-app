@@ -18,6 +18,8 @@ type AppContextProviderValues = {
   countries: requestType;
   bookmarks: any[];
   setBookmarks: Dispatch<SetStateAction<any[]>>;
+  getCountryWeather: (lat: string, long: string) => void;
+  countryWeather: requestType;
 };
 
 export type notificationsType =
@@ -40,6 +42,11 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
     isLoading: false,
     error: null,
   });
+  const [countryWeather, setCountryWeather] = useState<requestType>({
+    isLoading: false,
+    data: null,
+    error: null,
+  });
   const [bookmarks, setBookmarks] = useState<any[]>([]);
 
   // Requests
@@ -52,14 +59,25 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
     });
   };
 
+  const getCountryWeather = (lat: string, long: string) => {
+    requestHandler({
+      method: "GET",
+      url: `${process.env.REACT_APP_WEATHER_API_BASE_URL}/current.json?q=${lat},${long}&key=${process.env.REACT_APP_WEATHER_API_KEY}`,
+      state: countryWeather,
+      setState: setCountryWeather,
+    });
+  };
+
   useEffect(() => {
     getCountries();
 
     const localBookmarks = JSON.parse(
-      localStorage.getItem("weather-app-bookmarks") as string
+      localStorage.getItem("weather-app-bookmark") as string
     );
 
     setBookmarks(localBookmarks);
+
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -70,13 +88,21 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
 
   useEffect(() => {
     if (countries?.data) {
-      const counntriesCopy = countries.data?.map((data: any) => {
-        return { ...data, isBoookmarked: false };
-      });
+      const countriesCopy = countries.data.map((data: any) => ({
+        ...data,
+        isBookmarked: false, // Corrected typo
+      }));
 
-      // setCountries((prevState) => {
-      //   return { ...prevState, data: counntriesCopy };
-      // });
+      // Check if the data has changed
+      const hasChanged =
+        JSON.stringify(countriesCopy) !== JSON.stringify(countries.data);
+
+      if (hasChanged) {
+        setCountries((prevState) => ({
+          ...prevState,
+          data: countriesCopy,
+        }));
+      }
     }
   }, [countries?.data]);
 
@@ -89,6 +115,8 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
         countries,
         bookmarks,
         setBookmarks,
+        getCountryWeather,
+        countryWeather,
       }}
     >
       {children}

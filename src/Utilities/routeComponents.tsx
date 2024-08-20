@@ -12,6 +12,6 @@ export const routeComponents = [
     title: "Bookmarks",
     route: routes.BOOKMARKS,
     component: <Home />,
-    isSideNavRoute: true,
+    isSideNavRoute: false,
   },
 ];

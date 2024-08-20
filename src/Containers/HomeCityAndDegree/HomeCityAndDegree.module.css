@@ -51,3 +51,8 @@
   text-align: left;
   color: var(--white);
 }
+
+.container > img {
+  width: 121px;
+  height: 121px;
+}

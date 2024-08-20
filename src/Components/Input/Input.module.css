@@ -46,7 +46,7 @@
   box-sizing: border-box;
   border-radius: 40px;
   opacity: 0px;
-  background-color: var(--polarozedOrangeBg);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--white);
   outline: none;
 }
