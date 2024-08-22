@@ -78,7 +78,7 @@ const AppContextProvider = ({ children }: AppContextProviderType) => {
       localStorage.getItem("weather-app-bookmark") as string
     );
 
-    setBookmarks(localBookmarks);
+    setBookmarks(localBookmarks || []);
 
     // eslint-disable-next-line
   }, []);

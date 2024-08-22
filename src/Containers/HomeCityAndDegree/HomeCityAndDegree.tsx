@@ -41,8 +41,8 @@ const HomeCityAndDegree = () => {
           }}
         >
           {isFarenheit
-            ? `${countryWeather?.data?.current?.temp_f}°F`
-            : `${countryWeather?.data?.current?.temp_c}°C`}
+            ? `${countryWeather?.data?.current?.temp_f || "0"}°F`
+            : `${countryWeather?.data?.current?.temp_c || "0"}°C`}
         </h2>
         <span>Click to toggle between celsuis and farenheit</span>
         <span>{day}</span> <span>| {todaysDate}</span>

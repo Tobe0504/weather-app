@@ -68,7 +68,7 @@ const Header = () => {
                   return a?.name?.common - b?.name?.common;
                 })
                 ?.map((data: any) => {
-                  const isBookmarked = bookmarks.find((bookmark) => {
+                  const isBookmarked = bookmarks?.find((bookmark) => {
                     return (
                       bookmark?.name?.common
                         ?.replaceAll(" ", "-")
