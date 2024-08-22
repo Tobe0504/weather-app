@@ -44,7 +44,7 @@
   animation: appear 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   box-sizing: border-box;
-  border-radius: 40px;
+  border-radius: 5px;
   background: rgba(255, 255, 255, 0.2);
   color: var(--white);
   outline: none;
@@ -54,9 +54,15 @@
   outline: 1px solid var(--white);
 }
 
+.container input:active {
+  outline: 1px solid var(--white);
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .valid {
   border: none;
   color: var(--white);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .invalid {

@@ -19,6 +19,8 @@ const HomeSideNav = () => {
     (routes) => routes.isSideNavRoute
   );
 
+  console.log(sideNavRoutes);
+
   return (
     <Card className={classes.container}>
       {sideNavRoutes.map((routes) => {

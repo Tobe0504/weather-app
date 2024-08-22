@@ -1,4 +1,10 @@
 .container {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    border-radius: 5px;
+  }
 }

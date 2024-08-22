@@ -116,6 +116,8 @@ const Header = () => {
                               ?.replaceAll(" ", "-")
                               .toLowerCase(),
                           });
+
+                          setShowDropdown(false);
                         }}
                       >
                         {data?.name?.common}
